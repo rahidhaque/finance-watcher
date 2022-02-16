@@ -72,16 +72,13 @@ document.getElementById('btn-saving').addEventListener('click', function () {
     const getSavings = document.getElementById('saving-amount');
     const totalSavings = (totalIncome / 100) * getSavingsPercentage;
 
-    const remainingBalance = document.getElementById('balance-saving-amount');
+    const remainingBalance = document.getElementById('balance-remain');
     const remainingBalanceAmount = getBalanceAmount - totalSavings;
 
     if (getBalanceAmount < totalSavings) {
         alert("Savings Amount exceeded than total balance");
     }
-    else if (getSavings > 0 && remainingBalance > 0) {
-        getSavings.innerText = totalSavings;
-        remainingBalance.innerText = remainingBalanceAmount;
-    }
-
+    updateFinanceField("saving-amount", totalSavings);
+    updateFinanceField("balance-remain", remainingBalanceAmount);
     inputSavingsPercentage.value = "";
 })
