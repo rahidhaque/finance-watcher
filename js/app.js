@@ -55,3 +55,26 @@ document.getElementById('btn-calculate').addEventListener('click', function (eve
         updateFinanceField('balance-expense-amount', totalBalance);
     }
 })
+
+document.getElementById('btn-saving').addEventListener('click', function () {
+    const getBalance = document.getElementById('balance-expense-amount');
+    const getBalanceAmount = parseFloat(getBalance.innerText);
+
+    const inputSavingsPercentage = document.getElementById('input-saving');
+    const getSavingsPercentage = parseFloat(inputSavingsPercentage.value);
+
+    const getSavings = document.getElementById('saving-amount');
+    const totalSavings = (getBalanceAmount / 100) * getSavingsPercentage;
+
+    const remainingBalance = document.getElementById('balance-saving-amount');
+    const remainingBalanceAmount = getBalanceAmount - totalSavings;
+    if (remainingBalanceAmount < totalSavings) {
+        alert("Savings Amount exceeded than current balance");
+        return false;
+    }
+    else {
+        getSavings.innerText = totalSavings;
+        remainingBalance.innerText = remainingBalanceAmount;
+    }
+    inputSavingsPercentage.value = "";
+})
