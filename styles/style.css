@@ -5,3 +5,12 @@
 .calculate-button{
     padding-left: 380px;
 }
+
+@media only screen and (max-width:688px){
+    .text-fields{
+        padding-left: 0px !important;
+    }
+    .calculate-button{
+        padding-left: 100px;
+    }
+}

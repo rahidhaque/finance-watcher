@@ -13,7 +13,7 @@
 <body>
     <div class="container mx-auto">
         <h1 class="text-4xl text-center text-gray-700 mt-10 font-bold">Finance Watcher</h1>
-        <div class="grid grid-cols-2 mt-10">
+        <div class="grid lg:grid-cols-2 mt-10 sm:grid-cols-1">
             <div class="img-item">
                 <img src="images/bangladeshi-money-some-bangladeshi-cash-white-background-132003177.jpg" alt="">
             </div>
@@ -24,7 +24,7 @@
                         <p class="text-fields pl-20 text-1xl font-medium inline">Income:
                         </p>
                         <input
-                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded w-2/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-4"
+                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded lg:w-2/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-4"
                             id="input-income" type="text">
                     </div>
                     <h3 class="text-2xl font-semibold text-center mt-5">Expenses</h3>
@@ -32,47 +32,49 @@
                         <p class="text-fields pl-20 text-1xl font-medium inline">Food:
                         </p>
                         <input
-                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded w-2/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-8"
+                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded lg:w-2/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-8"
                             id="input-food" type="text">
                     </div>
                     <div class="mt-5">
                         <p class="text-fields pl-20 text-1xl font-medium inline">Rent:
                         </p>
                         <input
-                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded w-2/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-8"
+                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded lg:w-2/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-8"
                             id="input-rent" type="text">
                     </div>
                     <div class="mt-5">
                         <p class="text-fields pl-20 text-1xl font-medium inline">Cloth:
                         </p>
                         <input
-                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded w-2/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-6"
+                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded lg:w-2/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-6"
                             id="input-cloth" type="text">
                     </div>
                     <div class="calculate-button mt-5">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full"
+                            id="btn-calculate">
                             Calculate
                         </button>
                     </div>
-                    <h3 class="text-2xl font-semibold text-center mt-5 pl-10">Total Expenses: <span
+                    <h3 class="text-2xl font-semibold text-center mt-5 pl-20">Total Expenses: <span
                             id="expense-amount">00</span>
                     </h3>
-                    <h3 class="text-2xl font-semibold text-center mt-5 pl-10">Balance: <span
+                    <h3 class="text-2xl font-semibold text-center mt-5 pl-20">Balance: <span
                             id="balance-expense-amount">00</span>
                     </h3>
                 </div>
-                <div class="saving-items">
-                    <p class="text-fields pl-20 text-1xl font-medium inline mt-5">Save: <input
+                <div class="saving-items mt-5">
+                    <p class="text-fields pl-20 text-1xl font-medium inline">Save: <input
                             class="bg-gray-300 appearance-none border-2 border-gray-200 rounded w-1/5 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-400 focus:border-purple-500 ml-6"
-                            id="input-cloth" type="text">% <button
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                            id="input-save" type="text">% <button
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                            id="get-saving">
                             Save
                         </button>
                     </p>
-                    <h3 class="text-2xl font-semibold text-center mt-5 pl-10">Saving Amount: <span
+                    <h3 class="text-2xl font-semibold text-center mt-5 pl-20">Saving Amount: <span
                             id="expense-amount">00</span>
                     </h3>
-                    <h3 class="text-2xl font-semibold text-center mt-5 pl-10">Remaining Balance: <span
+                    <h3 class="text-2xl font-semibold text-center mt-5 pl-20">Remaining Balance: <span
                             id="balance-saving-amount">00</span>
                     </h3>
                 </div>
