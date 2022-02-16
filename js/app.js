@@ -1,13 +1,13 @@
 function getInputValue(inputId) {
     const inputFinance = document.getElementById(inputId);
     const financeText = inputFinance.value;
+
     if (isNaN(financeText)) {
         alert("Please Correct!! You Have entered a string value");
-        return false;
+
     }
     else if (financeText == "") {
         alert("Please Correct!! Some of your field is empty");
-        return false;
     }
     else {
         //get finance
@@ -74,13 +74,14 @@ document.getElementById('btn-saving').addEventListener('click', function () {
 
     const remainingBalance = document.getElementById('balance-saving-amount');
     const remainingBalanceAmount = getBalanceAmount - totalSavings;
+
     if (getBalanceAmount < totalSavings) {
         alert("Savings Amount exceeded than total balance");
-        return false;
     }
-    else {
+    else if (getSavings > 0 && remainingBalance > 0) {
         getSavings.innerText = totalSavings;
         remainingBalance.innerText = remainingBalanceAmount;
     }
+
     inputSavingsPercentage.value = "";
 })
