@@ -15,8 +15,13 @@ function getInputValue(inputId) {
         if (financeAmount < 0) {
             alert("You have entered a negative number");
         }
-        //clear input field
-        inputFinance.value = "";
+        else if (inputId == 'input-income') {
+            inputFinance.value = financeAmount;
+        }
+        else {
+            //clear input field
+            inputFinance.value = "";
+        }
         return financeAmount;
     }
 }
@@ -63,13 +68,14 @@ document.getElementById('btn-saving').addEventListener('click', function () {
     const inputSavingsPercentage = document.getElementById('input-saving');
     const getSavingsPercentage = parseFloat(inputSavingsPercentage.value);
 
+    const totalIncome = getTotalIncome();
     const getSavings = document.getElementById('saving-amount');
-    const totalSavings = (getBalanceAmount / 100) * getSavingsPercentage;
+    const totalSavings = (totalIncome / 100) * getSavingsPercentage;
 
     const remainingBalance = document.getElementById('balance-saving-amount');
     const remainingBalanceAmount = getBalanceAmount - totalSavings;
-    if (remainingBalanceAmount < totalSavings) {
-        alert("Savings Amount exceeded than current balance");
+    if (getBalanceAmount < totalSavings) {
+        alert("Savings Amount exceeded than total balance");
         return false;
     }
     else {
