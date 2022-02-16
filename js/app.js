@@ -7,16 +7,13 @@ function getInputValue(inputId) {
     inputFinance.value = "";
     return financeAmount;
 }
-function getTotalIncome() {
-    const incomeAmount = getInputValue('input-income');
-    return incomeAmount;
-}
-function getTotalExpenses() {
-    const expenseAmount = getInputValue('input-food') + getInputValue('input-rent') + getInputValue('input-cloth');
-    return expenseAmount;
-}
 
 
 document.getElementById('btn-calculate').addEventListener('click', function () {
-
+    //get income
+    const totalIncome = getInputValue('input-income');
+    //get expenses
+    const totalExpenses = getInputValue('input-food') + getInputValue('input-rent') + getInputValue('input-cloth');
+    const expensField = document.getElementById('expense-amount');
+    expensField.innerText = totalExpenses;
 })
