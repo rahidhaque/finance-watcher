@@ -1,31 +1,34 @@
 function getInputValue(inputId) {
     const inputFinance = document.getElementById(inputId);
     const financeText = inputFinance.value;
+    //get input finance
+    const financeAmount = parseFloat(financeText);
 
+    //error checking for string value
     if (isNaN(financeText)) {
-        alert("Please Correct!! You Have entered a string value");
+        document.getElementById('error-' + inputId).innerHTML = "Please Correct!! You Have entered a string value";
+    }
 
-    }
+    //error checking for empty field
     else if (financeText == "") {
-        alert("Please Correct!! Some of your field is empty");
+        document.getElementById('error-' + inputId).innerHTML = "Please Fill the Field";
     }
+
+    //error checking for negative value
+    else if (financeAmount < 0) {
+        document.getElementById('error-' + inputId).innerHTML = "You have entered a negative number";
+    }
+
+
+    //empty the error field for correct value
     else {
-        //get finance
-        const financeAmount = parseFloat(financeText);
-        if (financeAmount < 0) {
-            alert("You have entered a negative number");
-        }
-        else if (inputId == 'input-income') {
-            inputFinance.value = financeAmount;
-        }
-        else {
-            //clear input field
-            inputFinance.value = "";
-        }
+        document.getElementById('error-' + inputId).innerHTML = "";
         return financeAmount;
     }
 }
+
 function updateFinanceField(totalFieldId, totalFinance) {
+    //update value operation
     const financeField = document.getElementById(totalFieldId);
     if (totalFinance > 0) {
         financeField.innerText = totalFinance;
@@ -43,42 +46,51 @@ function getTotalExpenses() {
     return totalExpenses;
 }
 
-/* function getTotalBalance(totalIncome, totalExpenses) {
-    const totalBalance = totalIncome - totalExpenses;
-    return totalBalance;
-} */
-
 document.getElementById('btn-calculate').addEventListener('click', function (event) {
     const totalExpenses = getTotalExpenses();
     const totalIncome = getTotalIncome();
-    const totalBalance = totalIncome - totalExpenses;
+
+
+    //error check if income is greater than expenditure
     if (totalIncome < totalExpenses) {
         alert("Your Total Income is greater than expense");
     }
+
     else {
+        //get total balance
+        const totalBalance = totalIncome - totalExpenses;
         updateFinanceField('expense-amount', totalExpenses);
         updateFinanceField('balance-expense-amount', totalBalance);
     }
 })
 
 document.getElementById('btn-saving').addEventListener('click', function () {
+    //get balance after expenses 
     const getBalance = document.getElementById('balance-expense-amount');
     const getBalanceAmount = parseFloat(getBalance.innerText);
 
+    //get input savings percentage
     const inputSavingsPercentage = document.getElementById('input-saving');
     const getSavingsPercentage = parseFloat(inputSavingsPercentage.value);
 
+    //get savings text
     const totalIncome = getTotalIncome();
     const getSavings = document.getElementById('saving-amount');
+
+    //total savings calculation
     const totalSavings = (totalIncome / 100) * getSavingsPercentage;
 
+    //get remaining balance text
     const remainingBalance = document.getElementById('balance-remain');
     const remainingBalanceAmount = getBalanceAmount - totalSavings;
 
+    //error check if savings is greater than balance after expenses
     if (getBalanceAmount < totalSavings) {
         alert("Savings Amount exceeded than total balance");
     }
-    updateFinanceField("saving-amount", totalSavings);
-    updateFinanceField("balance-remain", remainingBalanceAmount);
-    inputSavingsPercentage.value = "";
+    else {
+        updateFinanceField("saving-amount", totalSavings);
+        updateFinanceField("balance-remain", remainingBalanceAmount);
+        inputSavingsPercentage.value = "";
+    }
 })

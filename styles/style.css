@@ -5,7 +5,11 @@
 .calculate-button{
     padding-left: 380px;
 }
-
+.error-message{
+    padding-left: 330px;
+    color: red;
+}
+/* mobile responsiveness */
 @media only screen and (max-width:688px){
     .text-fields{
         padding-left: 0px !important;
