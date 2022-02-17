@@ -21,4 +21,8 @@
         padding-left: 50px;
         color: red;
     }
+    .save-button{
+        margin-top: 20px;
+        margin-left: 150px;
+    }
 }
