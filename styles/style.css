@@ -17,4 +17,8 @@
     .calculate-button{
         padding-left: 100px;
     }
+    .error-message{
+        padding-left: 50px;
+        color: red;
+    }
 }

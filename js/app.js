@@ -16,7 +16,7 @@ function getInputValue(inputId) {
 
     //error checking for negative value
     else if (financeAmount < 0) {
-        document.getElementById('error-' + inputId).innerHTML = "You have entered a negative number";
+        document.getElementById('error-' + inputId).innerHTML = "Please Correct!! You have entered a negative number";
     }
 
 
@@ -53,11 +53,12 @@ document.getElementById('btn-calculate').addEventListener('click', function (eve
 
     //error check if income is greater than expenditure
     if (totalIncome < totalExpenses) {
-        alert("Your Total Income is greater than expense");
+        document.getElementById("error-lower-expense-balance").innerHTML = "Your Total Income is greater than expense";
     }
 
     else {
         //get total balance
+        document.getElementById("error-lower-expense-balance").innerHTML = "";
         const totalBalance = totalIncome - totalExpenses;
         updateFinanceField('expense-amount', totalExpenses);
         updateFinanceField('balance-expense-amount', totalBalance);
@@ -75,10 +76,10 @@ document.getElementById('btn-saving').addEventListener('click', function () {
 
     //get savings text
     const totalIncome = getTotalIncome();
-    const getSavings = document.getElementById('saving-amount');
+    const getSavings = getInputValue('input-saving');
 
     //total savings calculation
-    const totalSavings = (totalIncome / 100) * getSavingsPercentage;
+    const totalSavings = Math.round((totalIncome / 100) * getSavingsPercentage);
 
     //get remaining balance text
     const remainingBalance = document.getElementById('balance-remain');
@@ -86,11 +87,14 @@ document.getElementById('btn-saving').addEventListener('click', function () {
 
     //error check if savings is greater than balance after expenses
     if (getBalanceAmount < totalSavings) {
-        alert("Savings Amount exceeded than total balance");
+        document.getElementById("error-lower-remaining-balance").innerHTML = "Savings Amount exceeded than total balance";
     }
     else {
+        //update savings & remaining balance textfield
+        document.getElementById("error-lower-remaining-balance").innerHTML = "";
         updateFinanceField("saving-amount", totalSavings);
         updateFinanceField("balance-remain", remainingBalanceAmount);
+        //clear
         inputSavingsPercentage.value = "";
     }
 })

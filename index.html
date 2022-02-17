@@ -14,7 +14,7 @@
 
 <body>
     <div class="container mx-auto">
-        <h1 class="text-4xl text-center text-gray-700 mt-10 font-bold">Finance Watcher</h1>
+        <h1 class="text-4xl text-center text-gray-700 mt-8 font-bold">Finance Watcher</h1>
         <div class="grid lg:grid-cols-2 mt-10 sm:grid-cols-1">
             <!-- image part -->
             <div class="img-item">
@@ -63,7 +63,8 @@
                             Calculate
                         </button>
                     </div>
-                    <h3 class="text-2xl font-semibold text-center mt-5 pl-20">Total Expenses: <span
+                    <br><span class="error-message" id="error-lower-expense-balance"></span>
+                    <h3 class="text-2xl font-semibold text-center pl-20">Total Expenses: <span
                             id="expense-amount">00</span>
                     </h3>
                     <h3 class="text-2xl font-semibold text-center mt-5 pl-20">Total Balance: <span
@@ -78,10 +79,11 @@
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                             id="btn-saving">
                             Save
-                        </button>
+                        </button><br><span class="error-message" id="error-input-saving"></span>
                     </p>
                     <!-- saving & remaining balance calculation -->
-                    <h3 class="text-2xl font-semibold text-center mt-5 pl-20">Saving Amount: <span
+                    <br><span class="error-message" id="error-lower-remaining-balance"></span>
+                    <h3 class="text-2xl font-semibold text-center pl-20">Saving Amount: <span
                             id="saving-amount">00</span>
                     </h3>
                     <h3 class="text-2xl font-semibold text-center mt-5 pl-20">Remaining Balance: <span
